@@ -45,14 +45,15 @@ public class Employee {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//Employee eligible fields: First Name(String), Last Name(String), Employee Number(int), Department(String), Salary(int), Manager(boolean)
 		Employee jDoe = new Employee("J");
 		System.out.println(jDoe);
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [fName=" + fName + ", lName=" + lName + ", empNumber=" + empNumber + ", dept=" + dept
-				+ ", salary=" + salary + ", manager=" + manager + "]";
+		return "Employee: " + fName + " " + lName + ", EmployeeID: " + empNumber + ", Department: " + dept
+				+ ", Salary: $" + salary + ", Permissions:" + manager;
 	}
 	
 	
