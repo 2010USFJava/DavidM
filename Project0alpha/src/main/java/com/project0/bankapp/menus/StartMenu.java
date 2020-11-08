@@ -10,10 +10,10 @@ public class StartMenu {
 		int choice = input.nextInt();
 		switch(choice) {
 		case 1:
-			//customerStartMenu();
+			CustomerMenu.customerStartMenu();
 			break;
 		case 2:
-			//employeeStartMenu();
+			EmployeeMenu.employeeStartMenu();
 			break;
 		case 3:
 			System.out.println("Thank you for using Bank.  Goodbye");

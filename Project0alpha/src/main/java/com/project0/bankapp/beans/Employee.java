@@ -25,6 +25,13 @@ public class Employee {
 		this.password = password;
 		this.isAdmin = true;
 	}
+	public Employee(String firstName, String lastName, long iD, String password, boolean isAdmin) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.iD = iD;
+		this.password = password;
+		this.isAdmin = isAdmin;
+	}
 	
 	public Employee() {
 		super();

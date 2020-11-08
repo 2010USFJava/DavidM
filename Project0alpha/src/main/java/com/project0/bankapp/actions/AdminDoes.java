@@ -11,15 +11,15 @@ public class AdminDoes {
 	private AdminDoes() {
 		super();
 	}
-	public static void takeMonies(Customer a, Account b, double d) {
+	public static void takeMonies(Account b, double d) {
 		double balance = b.getBalance();
-		double newMoney = a.getCustomerActions().deposit(d);
+		double newMoney = d;
 		balance = balance + newMoney;
 		b.setBalance(balance);
 	}
-	public static void giveMonies(Customer a, Account b, double scan) {
+	public static void giveMonies(Account b, double scan) {
 		double balance = b.getBalance();
-		double newMoney = a.getCustomerActions().withdraw(scan);
+		double newMoney = scan;
 		if (balance > newMoney) {
 			balance = balance - newMoney;
 		} else {
@@ -27,16 +27,16 @@ public class AdminDoes {
 		}
 		b.setBalance(balance);
 	}
-	public static void moveMonies(Customer a, Account source, Account target, double scan) {
+	public static void moveMonies(Account source, Account target, double scan) {
 		double sourceBalance = source.getBalance();
 		double targetBalance = target.getBalance();
-		double transfer = a.getCustomerActions().transfer(scan);
+		double transfer = scan;
 		if(sourceBalance > targetBalance && sourceBalance > transfer) {
 			targetBalance = targetBalance + transfer;
 			sourceBalance = sourceBalance - transfer;
 		}
 		else {
-			System.out.println("Not enough to withdraw");
+			System.out.println("Not enough to transfer");
 		}
 		source.setBalance(sourceBalance);
 		target.setBalance(targetBalance);

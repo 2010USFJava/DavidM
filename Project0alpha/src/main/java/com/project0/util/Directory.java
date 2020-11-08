@@ -7,6 +7,7 @@ import com.project0.bankapp.beans.Account;
 import com.project0.bankapp.beans.Customer;
 import com.project0.bankapp.beans.Employee;
 import com.project0.bankapp.menus.CustomerMenu;
+import com.project0.bankapp.menus.StartMenu;
 
 public class Directory {
 	protected static List<Employee> employeeList = new ArrayList<Employee>();
@@ -20,6 +21,7 @@ public class Directory {
 			}
 		}
 		System.out.println("Employee not found");
+		StartMenu.startMenu();
 		return null;
 	}
 	public static Employee findEmployeeByID(long id) {
@@ -30,10 +32,23 @@ public class Directory {
 			}
 		}
 		System.out.println("Employee not found");
+		StartMenu.startMenu();
 		return null;
 	}
 	
-	private static List<Account> accountList = new ArrayList<>();
+	public static Employee employeePassword(String inputLogin) {
+		for (int i = 0; i < employeeList.size(); i++) {
+			String verify = employeeList.get(i).getPassword();
+			if (inputLogin.equals(verify)) {
+				return employeeList.get(i);
+			}
+		}
+		System.out.println("Password incorrect");
+		StartMenu.startMenu();
+		return null;
+	}
+	
+	private static List<Account> accountList = new ArrayList<Account>();
 	
 	public static Account findAccountByNumber(long id) {
 		for (int i = 0; i < getAccountList().size(); i++) {
@@ -43,6 +58,7 @@ public class Directory {
 			}
 		}
 		System.out.println("Account not found");
+		StartMenu.startMenu();
 		return null;
 	}
 	
@@ -55,10 +71,11 @@ public class Directory {
 			}
 		}
 		System.out.println("Account not found");
+		StartMenu.startMenu();
 		return null;
 	}
 	
-	protected static List<Customer> customerList = new ArrayList<>();
+	protected static List<Customer> customerList = new ArrayList<Customer>();
 	
 	public static Customer findCustomerByName(String inputName) {
 		for (int i = 0; i < customerList.size(); i++) {
@@ -69,17 +86,19 @@ public class Directory {
 			}
 		}
 		System.out.println("Customer not found");
+		StartMenu.startMenu();
 		return null;
 	}
 	
 	public static Customer findCustomerByEmail (String inputEmail) {
 		for (int i = 0; i < customerList.size(); i++) {
 			String email = customerList.get(i).getEmail();
-			if(inputEmail == email) {
+			if(inputEmail.equalsIgnoreCase(email)) {
 				return customerList.get(i);
 			}
 		}
 		System.out.println("Customer not found");
+		StartMenu.startMenu();
 		return null;
 	}
 	
