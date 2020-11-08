@@ -6,6 +6,7 @@ import java.util.List;
 import com.project0.bankapp.beans.Account;
 import com.project0.bankapp.beans.Customer;
 import com.project0.bankapp.beans.Employee;
+import com.project0.bankapp.menus.CustomerMenu;
 
 public class Directory {
 	protected static List<Employee> employeeList = new ArrayList<Employee>();
@@ -19,7 +20,6 @@ public class Directory {
 			}
 		}
 		System.out.println("Employee not found");
-		//Menu.startMenu();
 		return null;
 	}
 	public static Employee findEmployeeByID(long id) {
@@ -30,34 +30,31 @@ public class Directory {
 			}
 		}
 		System.out.println("Employee not found");
-		//Menu.startMenu();
 		return null;
 	}
 	
-	protected static List<Account> accountList = new ArrayList<>();
+	private static List<Account> accountList = new ArrayList<>();
 	
 	public static Account findAccountByNumber(long id) {
-		for (int i = 0; i < accountList.size(); i++) {
-			long accountNo = accountList.get(i).getAccountNo();
+		for (int i = 0; i < getAccountList().size(); i++) {
+			long accountNo = getAccountList().get(i).getAccountNo();
 			if (id == accountNo) {
-				return accountList.get(i);
+				return getAccountList().get(i);
 			}
 		}
 		System.out.println("Account not found");
-		//Menu.startMenu();
 		return null;
 	}
 	
 	public static Account findAccountByCustomer(String inputName) {
-		for (int i = 0; i < accountList.size(); i++) {
-			String customer = accountList.get(i).getPrimary().getLastName();
-			String customer2 = accountList.get(i).getSecondary().getLastName();
+		for (int i = 0; i < getAccountList().size(); i++) {
+			String customer = getAccountList().get(i).getPrimary().getLastName();
+			String customer2 = getAccountList().get(i).getSecondary().getLastName();
 			if (inputName.equalsIgnoreCase(customer) || inputName.equalsIgnoreCase(customer2)) {
-				return accountList.get(i);
+				return getAccountList().get(i);
 			}
 		}
 		System.out.println("Account not found");
-		//Menu.startMenu();
 		return null;
 	}
 	
@@ -72,7 +69,36 @@ public class Directory {
 			}
 		}
 		System.out.println("Customer not found");
-		//Menu.startMenu();
 		return null;
+	}
+	
+	public static Customer findCustomerByEmail (String inputEmail) {
+		for (int i = 0; i < customerList.size(); i++) {
+			String email = customerList.get(i).getEmail();
+			if(inputEmail == email) {
+				return customerList.get(i);
+			}
+		}
+		System.out.println("Customer not found");
+		return null;
+	}
+	
+	public static Customer passwordChecker(String inputLogin) {
+		for (int i = 0; i < customerList.size(); i++) {
+			String verify = customerList.get(i).getPassword();
+			if (inputLogin.equals(verify)) {
+				return customerList.get(i);
+			}
+		}
+		System.out.println("Password incorrect");
+		CustomerMenu.existingCustomer();
+		return null;
+	}
+	
+	public static List<Account> getAccountList() {
+		return accountList;
+	}
+	public static void setAccountList(List<Account> accountList) {
+		Directory.accountList = accountList;
 	}
 }

@@ -73,7 +73,7 @@ public class Filer {
 			ObjectInputStream objectIn;
 			try {
 				objectIn = new ObjectInputStream(new FileInputStream(accountFile));
-				Directory.accountList = (ArrayList<Account>) objectIn.readObject();
+				Directory.setAccountList((ArrayList<Account>) objectIn.readObject());
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

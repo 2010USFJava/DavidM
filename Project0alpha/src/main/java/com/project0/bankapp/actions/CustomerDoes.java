@@ -9,15 +9,18 @@ public class CustomerDoes {
 	private CustomerDoes() {
 		super();
 	}
-	public static void takeMonies(Customer a, Account b, Scanner scan) {
+	public static void viewAccount(Account a) {
+		System.out.println(a.toString());
+	}
+	public static void takeMonies(Customer a, Account b, double d) {
 		double balance = b.getBalance();
-		double newMoney = a.getCustomerActions().deposit(scan);
+		double newMoney = a.getCustomerActions().deposit(d);
 		balance = balance + newMoney;
 		b.setBalance(balance);
 	}
-	public static void giveMonies(Customer a, Account b, Scanner scan) {
+	public static void giveMonies(Customer a, Account b, double withdraw) {
 		double balance = b.getBalance();
-		double newMoney = a.getCustomerActions().withdraw(scan);
+		double newMoney = a.getCustomerActions().withdraw(withdraw);
 		if (balance > newMoney) {
 			balance = balance - newMoney;
 		} else {
@@ -25,10 +28,10 @@ public class CustomerDoes {
 		}
 		b.setBalance(balance);
 	}
-	public static void moveMonies(Customer a, Account source, Account target, Scanner scan) {
+	public static void moveMonies(Customer a, Account source, Account target, double transfer2) {
 		double sourceBalance = source.getBalance();
 		double targetBalance = target.getBalance();
-		double transfer = a.getCustomerActions().transfer(scan);
+		double transfer = a.getCustomerActions().transfer(transfer2);
 		if(sourceBalance > targetBalance && sourceBalance > transfer) {
 			targetBalance = targetBalance + transfer;
 			sourceBalance = sourceBalance - transfer;
