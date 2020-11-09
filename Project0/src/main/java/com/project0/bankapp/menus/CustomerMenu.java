@@ -26,7 +26,7 @@ public class CustomerMenu {
 			StartMenu.startMenu();
 			break;
 		case 4:
-			System.out.println("Thank you for using Bank. Goodbye");
+			System.out.println("Thank you for Bankius Maximus. Goodbye");
 			System.exit(0);
 			break;
 		default:
@@ -91,7 +91,7 @@ public class CustomerMenu {
 			StartMenu.startMenu();
 			break;
 		case 6:
-			System.out.println("Thank you for using Bank.  Goodbye");
+			System.out.println("Thank you for Bankius Maximus.  Goodbye");
 			System.exit(0);
 			break;
 		default:
@@ -142,11 +142,11 @@ public class CustomerMenu {
 			System.out.println("What kind of account is this?\n1.\tChecking\n2.\tSavings");
 			int type = Integer.parseInt(input.nextLine());
 			if(type == 1) {
-				long accountNo = (long)Math.random() + System.currentTimeMillis();
+				long accountNo = System.currentTimeMillis();
 				Account jointAccount = new Account("Checking", accountNo, 0, applicant, coapplicant);
 				LogThis.LogIt("info", "New " + jointAccount.getType().toString() +" account " + jointAccount.getAccountNo() + " has been opened");
 			} else if (type == 2) {
-				long accountNo = (long)Math.random() + System.currentTimeMillis();
+				long accountNo = System.currentTimeMillis();
 				Account jointAccount = new Account("Saving", accountNo, 0, applicant, coapplicant);
 				LogThis.LogIt("info", "New " + jointAccount.getType().toString() +" account " + jointAccount.getAccountNo() + " has been opened");
 			} else {
@@ -157,11 +157,11 @@ public class CustomerMenu {
 			System.out.println("What kind of account is this?\n1.\tChecking\n2.\tSavings");
 			int type = Integer.parseInt(input.nextLine());
 			if (type == 1) {
-				long accountNo = (long)Math.random() + System.currentTimeMillis();
+				long accountNo = System.currentTimeMillis();
 				Account singleAccount = new Account("Checking", accountNo, 0, applicant);
 				LogThis.LogIt("info", "New " + singleAccount.getType() + " account " + singleAccount.getAccountNo() + " has been opened");
 			} else if (type == 2) {
-				long accountNo = (long)Math.random() + System.currentTimeMillis();
+				long accountNo = System.currentTimeMillis();
 				Account singleAccount = new Account("Savings", accountNo, 0, applicant);
 				LogThis.LogIt("info", "New " + singleAccount.getType() + " account " + singleAccount.getAccountNo() + " has been opened");
 			} else {

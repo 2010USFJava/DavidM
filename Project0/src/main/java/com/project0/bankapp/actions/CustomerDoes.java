@@ -12,16 +12,20 @@ public class CustomerDoes {
 		System.out.println(a.toString());
 	}
 	public static void takeMonies(Account b, double d) {
-		double balance = b.getBalance();
+		if (d > 0) {double balance = b.getBalance();
 		double newMoney = d;
 		balance = balance + newMoney;
 		b.setBalance(balance);
 		Filer.writeAccountFile(Directory.accountList);
+		}
+		else {System.out.println("Please deposit valid amount");
+			}
+		
 	}
 	public static void giveMonies(Account b, double withdraw) {
 		double balance = b.getBalance();
 		double newMoney = withdraw;
-		if (balance > newMoney) {
+		if (balance > newMoney && withdraw > 0) {
 			balance = balance - newMoney;
 		} else {
 			System.out.println("Not enough to withdraw");
@@ -33,7 +37,7 @@ public class CustomerDoes {
 		double sourceBalance = source.getBalance();
 		double targetBalance = target.getBalance();
 		double transferAmt = transfer;
-		if(sourceBalance > transferAmt) {
+		if(sourceBalance > transferAmt && transfer > 0) {
 			targetBalance = targetBalance + transferAmt;
 			sourceBalance = sourceBalance - transferAmt;
 			source.setBalance(sourceBalance);

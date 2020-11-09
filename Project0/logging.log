@@ -1,0 +1,14 @@
+[INFO ] 2020-11-09 14:22:45.244 [main] LogThis - New employee David Mejia 1604956964879 has joined the team
+[INFO ] 2020-11-09 14:23:03.152 [main] LogThis - New employee Noobie McNoob 1604956983151 has joined the team
+[INFO ] 2020-11-09 14:24:29.498 [main] LogThis - david1990m@gmail.com application was submitted
+[INFO ] 2020-11-09 14:24:35.154 [main] LogThis - New Checking account 1604957075150 has been opened
+[INFO ] 2020-11-09 14:25:04.329 [main] LogThis - deposit executed
+[INFO ] 2020-11-09 14:25:24.937 [main] LogThis - withdraw executed
+[INFO ] 2020-11-09 14:26:20.576 [main] LogThis - Account 1604957075150has been closed
+[INFO ] 2020-11-09 14:27:48.327 [main] LogThis - david@gmail.com application was submitted
+[INFO ] 2020-11-09 14:27:51.568 [main] LogThis - New Checking account 1604957271566 has been opened
+[INFO ] 2020-11-09 14:28:12.856 [main] LogThis - jdoe@gmail.com application was submitted
+[INFO ] 2020-11-09 14:28:15.473 [main] LogThis - New Checking account 1604957295471 has been opened
+[INFO ] 2020-11-09 14:28:42.329 [main] LogThis - deposit executed
+[INFO ] 2020-11-09 14:29:02.712 [main] LogThis - transfer executed
+[INFO ] 2020-11-09 14:29:19.376 [main] LogThis - transfer executed

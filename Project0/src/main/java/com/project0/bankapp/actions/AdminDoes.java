@@ -10,16 +10,20 @@ public class AdminDoes {
 		super();
 	}
 	public static void takeMonies(Account b, double d) {
-		double balance = b.getBalance();
-		double newMoney = d;
-		balance = balance + newMoney;
-		b.setBalance(balance);
-		Filer.writeAccountFile(Directory.accountList);
+		if(d > 0) {
+			double balance = b.getBalance();
+			double newMoney = d;
+			balance = balance + newMoney;
+			b.setBalance(balance);
+			Filer.writeAccountFile(Directory.accountList);
+		} else
+			System.out.println("Please enter a valid amount");
+
 	}
 	public static void giveMonies(Account b, double scan) {
 		double balance = b.getBalance();
 		double newMoney = scan;
-		if (balance > newMoney) {
+		if (balance > newMoney && newMoney > 0) {
 			balance = balance - newMoney;
 		} else {
 			System.out.println("Not enough to withdraw");
@@ -31,7 +35,7 @@ public class AdminDoes {
 		double sourceBalance = source.getBalance();
 		double targetBalance = target.getBalance();
 		double transfer = scan;
-		if(sourceBalance > targetBalance && sourceBalance > transfer) {
+		if(sourceBalance > targetBalance && sourceBalance > transfer && scan > 0) {
 			targetBalance = targetBalance + transfer;
 			sourceBalance = sourceBalance - transfer;
 		}

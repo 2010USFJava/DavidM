@@ -8,7 +8,7 @@
 				</Pattern>
 			</PatternLayout>
 		</Console>
-		<File name="File" fileName="C:\Users\David\Documents\workspace-spring-tool-suite-4-4.8.0.RELEASE\Project0alpha\logging.log">
+		<File name="File" fileName="C:\Users\David\Documents\workspace-spring-tool-suite-4-4.8.0.RELEASE\Project0\logging.log">
 			<PatternLayout>
 				<Pattern>
 					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n

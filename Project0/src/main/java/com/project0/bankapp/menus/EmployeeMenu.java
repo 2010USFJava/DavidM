@@ -25,7 +25,7 @@ public class EmployeeMenu {
 			StartMenu.startMenu();
 			break;
 		case 4:
-			System.out.println("Thank you for using Bank.  Goodbye");
+			System.out.println("Thank you for using Bankius Maximus.  Goodbye");
 			System.exit(0);
 			break;
 		default:
@@ -100,7 +100,7 @@ public class EmployeeMenu {
 				Account closeAccount = Directory.findAccountByNumber(accountClose);
 				AdminDoes.cancelAccount(closeAccount);
 				LogThis.LogIt("info", "Account " + closeAccount.getAccountNo() +"has been closed");
-				System.out.println("Well that's fantastic, a really smart decision, young man. We can put that check in a Money Market "
+				System.out.println("Well that's fantastic, a really smart decision. We can put that check in a Money Market "
 						+ "Mutual Fund, then we'll reinvest the earnings into foreign\ncurrency accounts with compounding interest aaaaand it's gone");
 				existingEmp();
 				break;
@@ -108,7 +108,7 @@ public class EmployeeMenu {
 				StartMenu.startMenu();
 				break;
 			case 7:
-				System.out.println("Thank you for using Bank.  Goodbye");
+				System.out.println("Thank you for using Bankius Maximus.  Goodbye");
 				System.exit(0);
 				break;
 			default:
@@ -129,7 +129,7 @@ public class EmployeeMenu {
 		String password = input.nextLine();
 		System.out.println("Are you an admin?\n\ttrue\n\tfalse");
 		boolean admin = Boolean.parseBoolean(input.nextLine());
-		long empID = (long)Math.random() + System.currentTimeMillis();
+		long empID = System.currentTimeMillis();
 		Employee newEmployee = new Employee(firstName, lastName, empID, password, admin);
 		LogThis.LogIt("info", "New employee " + newEmployee.getFirstName() + " " + newEmployee.getLastName() + " " + newEmployee.getID() + " " + "has joined the team");
 		Directory.employeeList.toString();
