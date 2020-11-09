@@ -1,6 +1,15 @@
 package com.project0.bankapp.beans;
 
-public class Customer {
+import java.io.Serializable;
+
+import com.project0.util.Directory;
+import com.project0.util.Filer;
+
+public class Customer implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6171923859426413858L;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -14,10 +23,14 @@ public class Customer {
 		this.email = email;
 		this.password = password;
 		this.customerActions = customerActions;
+		Directory.customerList.add(this);
+		Filer.writeCustomerFile(Directory.customerList);
 	}
 	
 	public Customer() {
 		super();
+		Directory.customerList.add(this);
+		Filer.writeCustomerFile(Directory.customerList);
 	}
 
 	public String getFirstName() {

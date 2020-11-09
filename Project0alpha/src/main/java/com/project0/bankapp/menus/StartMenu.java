@@ -7,7 +7,7 @@ public class StartMenu {
 	
 	public static void startMenu() {
 		System.out.println("Hello, Welcome to Bank\nPlease enter a selection\n1.\tCustomer menu\n2.\tEmployee menu\n3.\tQuit");
-		int choice = input.nextInt();
+		int choice = Integer.parseInt(input.nextLine());
 		switch(choice) {
 		case 1:
 			CustomerMenu.customerStartMenu();
@@ -17,6 +17,7 @@ public class StartMenu {
 			break;
 		case 3:
 			System.out.println("Thank you for using Bank.  Goodbye");
+			System.exit(0);
 			break;
 		default:
 			System.out.println("Please enter a valid selection");

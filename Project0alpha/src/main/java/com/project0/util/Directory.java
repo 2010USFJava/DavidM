@@ -10,7 +10,7 @@ import com.project0.bankapp.menus.CustomerMenu;
 import com.project0.bankapp.menus.StartMenu;
 
 public class Directory {
-	protected static List<Employee> employeeList = new ArrayList<Employee>();
+	public static List<Employee> employeeList = new ArrayList<Employee>();
 	
 	public static Employee findEmployeeByName(String inputName) {
 		for (int i = 0; i < employeeList.size(); i++) {
@@ -48,7 +48,7 @@ public class Directory {
 		return null;
 	}
 	
-	private static List<Account> accountList = new ArrayList<Account>();
+	public static List<Account> accountList = new ArrayList<Account>();
 	
 	public static Account findAccountByNumber(long id) {
 		for (int i = 0; i < getAccountList().size(); i++) {
@@ -75,7 +75,7 @@ public class Directory {
 		return null;
 	}
 	
-	protected static List<Customer> customerList = new ArrayList<Customer>();
+	public static List<Customer> customerList = new ArrayList<Customer>();
 	
 	public static Customer findCustomerByName(String inputName) {
 		for (int i = 0; i < customerList.size(); i++) {

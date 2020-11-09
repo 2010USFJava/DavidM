@@ -1,13 +1,22 @@
 package com.project0.bankapp.beans;
 
-public class Employee {
+import java.io.Serializable;
+
+import com.project0.util.Directory;
+import com.project0.util.Filer;
+
+public class Employee implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2234591548864446159L;
 	private String firstName;
 	private String lastName;
 	private long iD;
 	private String password;
 	private boolean isAdmin;
-	private Employees employeeAction;
-	private Admin admin;
+	private transient Employees employeeAction;
+	private transient Admin admin;
 	public Employee(String firstName, String lastName, long iD, String password, Employees employee) {
 		super();
 		this.firstName = firstName;
@@ -16,6 +25,8 @@ public class Employee {
 		this.password = password;
 		this.isAdmin = false;
 		this.employeeAction = employee;
+		Directory.employeeList.add(this);
+		Filer.writeEmployeeFile(Directory.employeeList);
 	}
 	public Employee(String firstName, String lastName, long iD, String password, Admin admin) {
 		super();
@@ -24,6 +35,8 @@ public class Employee {
 		this.iD = iD;
 		this.password = password;
 		this.isAdmin = true;
+		Directory.employeeList.add(this);
+		Filer.writeEmployeeFile(Directory.employeeList);
 	}
 	public Employee(String firstName, String lastName, long iD, String password, boolean isAdmin) {
 		this.firstName = firstName;
@@ -31,10 +44,14 @@ public class Employee {
 		this.iD = iD;
 		this.password = password;
 		this.isAdmin = isAdmin;
+		Directory.employeeList.add(this);
+		Filer.writeEmployeeFile(Directory.employeeList);
 	}
 	
 	public Employee() {
 		super();
+		Directory.employeeList.add(this);
+		Filer.writeEmployeeFile(Directory.employeeList);
 	}
 	public String getFirstName() {
 		return firstName;

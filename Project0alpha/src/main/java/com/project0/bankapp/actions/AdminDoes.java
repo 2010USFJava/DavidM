@@ -1,11 +1,9 @@
 package com.project0.bankapp.actions;
 
 import java.util.List;
-import java.util.Scanner;
-
 import com.project0.bankapp.beans.Account;
-import com.project0.bankapp.beans.Customer;
 import com.project0.util.Directory;
+import com.project0.util.Filer;
 
 public class AdminDoes {
 	private AdminDoes() {
@@ -16,6 +14,7 @@ public class AdminDoes {
 		double newMoney = d;
 		balance = balance + newMoney;
 		b.setBalance(balance);
+		Filer.writeAccountFile(Directory.accountList);
 	}
 	public static void giveMonies(Account b, double scan) {
 		double balance = b.getBalance();
@@ -26,6 +25,7 @@ public class AdminDoes {
 			System.out.println("Not enough to withdraw");
 		}
 		b.setBalance(balance);
+		Filer.writeAccountFile(Directory.accountList);
 	}
 	public static void moveMonies(Account source, Account target, double scan) {
 		double sourceBalance = source.getBalance();
@@ -40,6 +40,7 @@ public class AdminDoes {
 		}
 		source.setBalance(sourceBalance);
 		target.setBalance(targetBalance);
+		Filer.writeAccountFile(Directory.accountList);
 	}
 	public static void cancelAccount(Account account) {
 		List<Account> a = Directory.getAccountList();

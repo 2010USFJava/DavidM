@@ -1,6 +1,15 @@
 package com.project0.bankapp.beans;
 
-public class Account {
+import java.io.Serializable;
+
+import com.project0.util.Directory;
+import com.project0.util.Filer;
+
+public class Account implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8362630857749471234L;
 	private String type;
 	private long accountNo;
 	private double balance;
@@ -8,6 +17,8 @@ public class Account {
 	Customer secondary;
 	public Account() {
 		super();
+		Directory.accountList.add(this);
+		Filer.writeAccountFile(Directory.accountList);
 	}
 	public Account(String type, long accountNo, double balance, Customer primary) {
 		super();
@@ -15,6 +26,8 @@ public class Account {
 		this.accountNo = accountNo;
 		this.balance = balance;
 		this.primary = primary;
+		Directory.accountList.add(this);
+		Filer.writeAccountFile(Directory.accountList);
 	}
 	public Account(String type, long accountNo, double balance, Customer primary, Customer secondary) {
 		super();
@@ -23,6 +36,8 @@ public class Account {
 		this.balance = balance;
 		this.primary = primary;
 		this.secondary = secondary;
+		Directory.accountList.add(this);
+		Filer.writeAccountFile(Directory.accountList);
 	}
 	public String getType() {
 		return type;

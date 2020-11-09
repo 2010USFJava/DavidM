@@ -1,45 +1,47 @@
 package com.project0.bankapp.actions;
 
-import java.util.Scanner;
-
 import com.project0.bankapp.beans.Account;
-import com.project0.bankapp.beans.Customer;
+import com.project0.util.Directory;
+import com.project0.util.Filer;
 
 public class CustomerDoes {
-	private CustomerDoes() {
+	public CustomerDoes() {
 		super();
 	}
 	public static void viewAccount(Account a) {
 		System.out.println(a.toString());
 	}
-	public static void takeMonies(Customer a, Account b, double d) {
+	public static void takeMonies(Account b, double d) {
 		double balance = b.getBalance();
-		double newMoney = a.getCustomerActions().deposit(d);
+		double newMoney = d;
 		balance = balance + newMoney;
 		b.setBalance(balance);
+		Filer.writeAccountFile(Directory.accountList);
 	}
-	public static void giveMonies(Customer a, Account b, double withdraw) {
+	public static void giveMonies(Account b, double withdraw) {
 		double balance = b.getBalance();
-		double newMoney = a.getCustomerActions().withdraw(withdraw);
+		double newMoney = withdraw;
 		if (balance > newMoney) {
 			balance = balance - newMoney;
 		} else {
 			System.out.println("Not enough to withdraw");
 		}
 		b.setBalance(balance);
+		Filer.writeAccountFile(Directory.accountList);
 	}
-	public static void moveMonies(Customer a, Account source, Account target, double transfer2) {
+	public static void moveMonies(Account source, Account target, double transfer) {
 		double sourceBalance = source.getBalance();
 		double targetBalance = target.getBalance();
-		double transfer = a.getCustomerActions().transfer(transfer2);
-		if(sourceBalance > targetBalance && sourceBalance > transfer) {
-			targetBalance = targetBalance + transfer;
-			sourceBalance = sourceBalance - transfer;
+		double transferAmt = transfer;
+		if(sourceBalance > transferAmt) {
+			targetBalance = targetBalance + transferAmt;
+			sourceBalance = sourceBalance - transferAmt;
+			source.setBalance(sourceBalance);
+			target.setBalance(targetBalance);
 		}
 		else {
 			System.out.println("Not enough to withdraw");
 		}
-		source.setBalance(sourceBalance);
-		target.setBalance(targetBalance);
+		Filer.writeAccountFile(Directory.accountList);
 	}
 }
