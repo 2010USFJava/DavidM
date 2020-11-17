@@ -101,6 +101,7 @@ public class UserMenu {
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
+					System.out.println("Checking account created");
 					verifiedUser(user);
 					break;
 				case 2:
@@ -113,6 +114,7 @@ public class UserMenu {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+				System.out.println("Savings account created");
 				verifiedUser(user);
 				break;
 				default:
