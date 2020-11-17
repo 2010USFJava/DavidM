@@ -34,7 +34,7 @@ public class LogBean {
 	}
 	@Override
 	public String toString() {
-		return "LogBean [user_name=" + user_name + ", log_level=" + log_level + ", message=" + message + "]";
+		return "Username: " + user_name + ", Log Type: " + log_level + ", Message: " + message;
 	}
 	
 }

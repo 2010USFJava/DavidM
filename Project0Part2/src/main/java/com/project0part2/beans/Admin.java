@@ -49,8 +49,8 @@ public class Admin {
 	}
 	@Override
 	public String toString() {
-		return "Admin [adminID=" + adminID + ", fName=" + fName + ", lName=" + lName + ", username=" + username
-				+ ", password=" + password + "]";
+		return "Admin ID: " + adminID + ", Name: " + fName + " " + lName + ", Username: " + username
+				+ ", Password: " + password;
 	}
 	
 }

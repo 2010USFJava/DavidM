@@ -129,7 +129,9 @@ public class UserMenu {
 				AccountDaoImpl view = new AccountDaoImpl();
 				try {
 					List<Account> aList = (ArrayList<Account>) view.getAllAccounts(user.getUserID());
-					System.out.println(aList.toString());
+					for (Account account : aList) {
+						System.out.println(account.toString()+"\n");
+					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

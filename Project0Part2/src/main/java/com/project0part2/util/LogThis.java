@@ -43,5 +43,4 @@ public class LogThis {
 		ps.setString(3, message);
 		ps.executeUpdate();
 	}
-
 }

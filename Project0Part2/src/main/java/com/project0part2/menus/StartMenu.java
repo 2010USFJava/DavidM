@@ -7,6 +7,13 @@ public class StartMenu {
 	static Scanner input = new Scanner(System.in);
 	
 	public static void startMenu() throws IOException {
+		System.out.println("$$$           $$$     $$$$$$    $$$     $$$    $$$   $$$           $$$   $$$     $$$    $$$$$$$\n"
+		                 + "$$$ $$$   $$$ $$$    $$$  $$$    $$$   $$$     $$$   $$$ $$$   $$$ $$$   $$$     $$$    $$$    \n"
+		                 + "$$$  $$   $$  $$$   $$$    $$$    $$$ $$$      $$$   $$$  $$   $$  $$$   $$$     $$$    $$$    \n"
+		                 + "$$$   $   $   $$$  $$$$$$$$$$$$    $$$$$       $$$   $$$   $   $   $$$   $$$     $$$     $$$$$ \n"
+		                 + "$$$    $$$    $$$  $$$      $$$   $$$ $$$      $$$   $$$    $$$    $$$   $$$     $$$        $$$\n"
+		                 + "$$$           $$$  $$$      $$$  $$$   $$$     $$$   $$$           $$$   $$$     $$$        $$$\n"
+		                 + "$$$           $$$  $$$      $$$ $$$     $$$    $$$   $$$           $$$   $$$$$$$$$$$    $$$$$$$ "  );
 		System.out.println("Hello, Welcome to Bankius Maximus\nPlease enter a selection\n1.\tCustomer menu\n2.\tEmployee menu\n3.\tQuit");
 		int choice = Integer.parseInt(input.nextLine());
 		switch(choice) {

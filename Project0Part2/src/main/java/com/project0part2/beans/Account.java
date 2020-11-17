@@ -41,7 +41,7 @@ public class Account {
 	}
 	@Override
 	public String toString() {
-		return "Account [bankAccountID=" + bankAccountID + ", accountType=" + accountType + ", userID=" + userID
-				+ ", balance=" + balance + "]";
+		return "Account: " + bankAccountID + ", Type :" + accountType + ", Customer ID: " + userID
+				+ ", Balance$" + balance;
 	}
 }

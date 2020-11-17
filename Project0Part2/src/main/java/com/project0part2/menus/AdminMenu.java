@@ -225,6 +225,7 @@ public class AdminMenu {
 			verifiedAdmin(admin);
 			break;
 		case 5:
+			System.out.println("Thank you for using Maximus Bankus");
 			StartMenu.startMenu();
 			break;
 		default:
