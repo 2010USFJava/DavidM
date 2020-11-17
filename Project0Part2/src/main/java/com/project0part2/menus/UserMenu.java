@@ -156,7 +156,7 @@ public class UserMenu {
 					double depositNewBalance = depositAmount + depositAccount.getBalance();
 					deposit.updateAccount(depositNewBalance, depositChoice);
 					System.out.println("Deposit successful");
-					LogThis.LogMe("info", "$" + depositAmount + " has been added, new balance $" + depositNewBalance+ " for User:" + user.getfName(), user.getUsername());
+					LogThis.LogMe("info", "$" + depositAmount + " has been deposited into account "+ depositAccount.getBankAccountID() + ", new balance $" + depositNewBalance+ " for User:" + user.getfName(), user.getUsername());
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -188,7 +188,7 @@ public class UserMenu {
 						double withdrawBalance;
 						withdrawBalance = withdrawAccount.getBalance() - withdrawAmount;
 						withdraw.updateAccount(withdrawBalance, withdrawChoice);
-						LogThis.LogMe("info", "$" + withdrawAmount + " has been added, new balance $" + withdrawBalance + " for User:" + user.getfName(), user.getUsername());
+						LogThis.LogMe("info", "$" + withdrawAmount + " has been withdrawn from account " +withdrawAccount.getBankAccountID()+", new balance $" + withdrawBalance + " for User:" + user.getfName(), user.getUsername());
 						System.out.println("Withdraw successful");
 					}
 				} catch (SQLException e) {
@@ -230,7 +230,9 @@ public class UserMenu {
 				LogDao viewLog = new LogDaoImpl();
 				try {
 					List<LogBean> logList = (ArrayList<LogBean>) viewLog.getAllAccounts(user.getUsername());
-					System.out.println(logList.toString());
+					for (LogBean logBean : logList) {
+						System.out.println(logBean.toString()+"\n");
+					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
