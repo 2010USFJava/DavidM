@@ -5,11 +5,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import com.project0part2.beans.Account;
+import com.project0part2.beans.LogBean;
 import com.project0part2.beans.User;
 import com.project0part2.dao.AccountDao;
+import com.project0part2.dao.LogDao;
 import com.project0part2.dao.UserDao;
 import com.project0part2.daoimpl.AccountDaoImpl;
+import com.project0part2.daoimpl.LogDaoImpl;
 import com.project0part2.daoimpl.UserDaoImpl;
 import com.project0part2.exceptions.InvalidAmount;
 import com.project0part2.util.LogThis;
@@ -118,7 +122,7 @@ public class UserMenu {
 				}
 			break;
 		case 2:
-			System.out.println("What would you like to do?\n1.\tView Accounts\n2.\tDeposit\n3.\tWithdraw\n4.\tDelete Account\n5.\tLogOut");
+			System.out.println("What would you like to do?\n1.\tView Accounts\n2.\tDeposit\n3.\tWithdraw\n4.\tDelete Account\n5.\tView Logs\n6.\tLogOut");
 			int accountChoice = Integer.parseInt(input.nextLine());
 			switch (accountChoice) {
 			case 1:
@@ -152,7 +156,7 @@ public class UserMenu {
 					double depositNewBalance = depositAmount + depositAccount.getBalance();
 					deposit.updateAccount(depositNewBalance, depositChoice);
 					System.out.println("Deposit successful");
-					LogThis.LogMe(user.getUserID(),"info", "deposit completed");
+					LogThis.LogMe("info", "$" + depositAmount + " has been added, new balance $" + depositNewBalance+ " for User:" + user.getfName(), user.getUsername());
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -181,8 +185,10 @@ public class UserMenu {
 						System.out.println("Not enough to withdraw");
 						verifiedUser(user);
 					} else {
-						withdrawAmount = withdrawAccount.getBalance() - withdrawAmount;
-						withdraw.updateAccount(withdrawAmount, withdrawChoice);
+						double withdrawBalance;
+						withdrawBalance = withdrawAccount.getBalance() - withdrawAmount;
+						withdraw.updateAccount(withdrawBalance, withdrawChoice);
+						LogThis.LogMe("info", "$" + withdrawAmount + " has been added, new balance $" + withdrawBalance + " for User:" + user.getfName(), user.getUsername());
 						System.out.println("Withdraw successful");
 					}
 				} catch (SQLException e) {
@@ -221,6 +227,16 @@ public class UserMenu {
 					break;
 				}
 			case 5:
+				LogDao viewLog = new LogDaoImpl();
+				try {
+					List<LogBean> logList = (ArrayList<LogBean>) viewLog.getAllAccounts(user.getUsername());
+					System.out.println(logList.toString());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				verifiedUser(user);
+				break;
+			case 6:
 				StartMenu.startMenu();
 				break;
 			default:
