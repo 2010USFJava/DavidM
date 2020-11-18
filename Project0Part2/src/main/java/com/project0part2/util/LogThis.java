@@ -33,7 +33,7 @@ public class LogThis {
 			log.trace(message);
 			break;
 		default:
-			System.err.println("wat");
+			System.err.println("Does not compute");
 			break;
 		}
 		String sql = "insert into logs values (?,?,?)";

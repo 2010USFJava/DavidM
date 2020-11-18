@@ -186,8 +186,15 @@ public class UserMenu {
 				try {
 					Account withdrawAccount = withdraw.retrieveAccountByID(withdrawChoice);
 					if (withdrawAmount > withdrawAccount.getBalance()) {
-						System.out.println("Not enough to withdraw");
-						verifiedUser(user);
+						try {
+							throw new InvalidAmount();
+						} catch(InvalidAmount e) {
+							e.printStackTrace();
+						} finally {
+							System.out.println("Not enough to withdraw");
+							verifiedUser(user);
+						}
+						
 					} else {
 						double withdrawBalance;
 						withdrawBalance = withdrawAccount.getBalance() - withdrawAmount;

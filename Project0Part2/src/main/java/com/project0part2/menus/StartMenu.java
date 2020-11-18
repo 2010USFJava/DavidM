@@ -14,7 +14,7 @@ public class StartMenu {
 		                 + "$$$    $$$    $$$  $$$      $$$   $$$ $$$      $$$   $$$    $$$    $$$   $$$     $$$        $$$\n"
 		                 + "$$$           $$$  $$$      $$$  $$$   $$$     $$$   $$$           $$$   $$$     $$$        $$$\n"
 		                 + "$$$           $$$  $$$      $$$ $$$     $$$    $$$   $$$           $$$   $$$$$$$$$$$    $$$$$$$ "  );
-		System.out.println("Hello, Welcome to Bankius Maximus\nPlease enter a selection\n1.\tCustomer menu\n2.\tEmployee menu\n3.\tQuit");
+		System.out.println("Hello, Welcome to Bankus Maximus\nPlease enter a selection\n1.\tCustomer menu\n2.\tEmployee menu\n3.\tQuit");
 		int choice = Integer.parseInt(input.nextLine());
 		switch(choice) {
 		case 1:

@@ -79,6 +79,7 @@ public class AdminMenu {
 		}
 	}
 	
+	@SuppressWarnings("finally")
 	public static void verifiedAdmin(Admin admin) throws IOException {
 		System.out.println("Hello " + admin.getfName() + ", what would you like to do?\n1.\tView Accounts\n2.\tCreate User\n3.\tUpdate user\n4.\tDelete user\n5.\tLogout");
 		int choice = Integer.parseInt(input.nextLine());
@@ -98,9 +99,11 @@ public class AdminMenu {
 					System.out.println(viewUser.toString() + "\n" + aList.toString());
 				} catch (SQLException e) {
 					e.printStackTrace();
+				} finally {
+					verifiedAdmin(admin);
+					break;
 				}
-				verifiedAdmin(admin);
-				break;
+				
 			case 2:
 				System.out.println("Enter account number");
 				int accountChoice = Integer.parseInt(input.nextLine());
@@ -112,9 +115,10 @@ public class AdminMenu {
 					System.out.println(viewAccount.toString() +"\n"+viewUser.toString());
 				} catch (SQLException e) {
 					e.printStackTrace();
+				} finally {
+					verifiedAdmin(admin);
+					break;
 				}
-				verifiedAdmin(admin);
-				break;
 			default:
 				System.out.println("Please enter a valid selection");
 				verifiedAdmin(admin);

@@ -105,7 +105,7 @@ public class UserDaoImpl implements UserDao {
 		String sql = "update users set f_name=? where user_id=?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, fName);
-		ps.setInt(1, id);
+		ps.setInt(2, id);
 		ps.executeUpdate();
 	}
 

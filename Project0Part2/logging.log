@@ -2,3 +2,7 @@
 [INFO ] 2020-11-17 10:03:25.867 [main] LogThis - $20.0 has been added, new balance $2960.1 for User:Test
 [INFO ] 2020-11-17 11:20:32.587 [main] LogThis - $20.0 has been added, new balance $2980.1 for User:Test
 [INFO ] 2020-11-17 13:09:57.339 [main] LogThis - $1000.0 has been withdrawn, new balance $1980.1 for User:Test
+[INFO ] 2020-11-17 16:12:50.813 [main] LogThis - $100.0 has been deposited into account 22, new balance $300.0 for User:john
+[INFO ] 2020-11-17 16:13:23.341 [main] LogThis - $300.0 has been withdrawn from account 22, new balance $0.0 for User:john
+[INFO ] 2020-11-18 11:24:23.039 [main] LogThis - $20.0 has been deposited into account 25, new balance $120.0 for User:Create
+[INFO ] 2020-11-18 11:24:53.477 [main] LogThis - $120.0 has been withdrawn from account 25, new balance $0.0 for User:Create
